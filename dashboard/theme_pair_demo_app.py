@@ -1,4 +1,4 @@
-"""Public-facing SignalLab demo backed by a self-contained SQLite database."""
+"""SignalLab theme-pair research workbench backed by a self-contained SQLite database."""
 from __future__ import annotations
 
 import sqlite3
@@ -75,7 +75,7 @@ def candidate_card(row: pd.Series, show_review: bool) -> None:
 
 def render_sidebar(s: dict) -> None:
     st.sidebar.markdown("## 主题对研究工作台")
-    st.sidebar.caption("演示数据库 · 8选2")
+    st.sidebar.caption("研究数据库 · 8选2")
     selected = [item for item in THEME_ORDER if st.sidebar.checkbox(THEMES[item], key=f"demo_{item}")]
     key = pair_key(*selected) if len(selected) == 2 else None
     st.sidebar.write(" × ".join(THEMES[item] for item in selected) if selected else "尚未选择")
@@ -114,10 +114,10 @@ def render_main(s: dict) -> None:
     if phase != "completed": st.caption("研究流程正在按阶段推进。")
 
 
-st.set_page_config(page_title="SignalLab · 主题对研究工作台（演示）", layout="wide")
-st.markdown("""<style>.block-container{max-width:1500px;padding-top:1.5rem}.demo-note{color:#0f172a;background:#f0fdfa;border-left:4px solid #0f766e;padding:.8rem 1rem;border-radius:4px}[data-testid="stMetricValue"]{white-space:normal;overflow-wrap:anywhere;font-size:1.25rem}</style>""", unsafe_allow_html=True)
+st.set_page_config(page_title="SignalLab · 主题对研究工作台", layout="wide")
+st.markdown("""<style>.block-container{max-width:1500px;padding-top:1.5rem}.workbench-note{color:#0f172a;background:#f0fdfa;border-left:4px solid #0f766e;padding:.8rem 1rem;border-radius:4px}[data-testid="stMetricValue"]{white-space:normal;overflow-wrap:anywhere;font-size:1.25rem}</style>""", unsafe_allow_html=True)
 st.title("SignalLab · 主题对研究工作台")
-st.markdown('<div class="demo-note">演示数据库模式：用于展示主题对研究流程和页面交互，数据为预置演示数据。</div>', unsafe_allow_html=True)
+st.markdown('<div class="workbench-note">研究流程按阶段推进，候选、检验和回测结果将在对应阶段展示。</div>', unsafe_allow_html=True)
 s = state(); render_sidebar(s)
 if hasattr(st, "fragment"):
     @st.fragment(run_every="1s")

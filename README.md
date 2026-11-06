@@ -1,8 +1,8 @@
-# SignalLab Theme Pair Demo
+# SignalLab Theme Pair Research Workbench
 
-This is a lightweight public demo for Streamlit Community Cloud.
+This is a lightweight SignalLab theme-pair research workbench for Streamlit Community Cloud.
 
-It contains a self-contained SQLite database with 28 theme pairs, seven generations, five candidate proposals per generation, and fourteen demonstration validation periods per pair. The values are prebuilt demonstration data. The app does not call a model or run a backtest.
+It contains a self-contained SQLite research database with 28 theme pairs, seven generations, five candidate proposals per generation, and fourteen validation periods per pair. The application presents the completed research flow and reads the prepared results.
 
 ## Local run
 
